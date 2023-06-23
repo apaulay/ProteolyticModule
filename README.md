@@ -1,1 +1,43 @@
-# ProteolyticModule
+# Proteolytic Module for Bacteroides caccae Metabolic Model
+
+This repository contains scripts and resources for developing and implementing a proteolytic module in a Bacteroides caccae ATCC 43185 metabolic metabolic model.
+
+## Project Description
+
+The aim of this project is to enhance the B. caccae metabolic model growth and metabolic production prediction accuracy by incorporating a proteolytic module. The proteolytic module allows for protein breakdown and provides a more comprehensive representation of the organism's metabolic capabilities.
+
+## Dependency
+
+- MATLAB: Make sure you have MATLAB installed on your system to run the scripts and perform the simulations.
+
+- [CobraToolBox](https://github.com/opencobra/cobratoolbox.git): The CobraToolBox, a MATLAB-based toolbox, is required for working with the B. caccae metabolic model and performing FBA simulations.
+
+- Homemade Scripts: In addition to the CobraToolBox, several homemade scripts were developed specifically for this project. These scripts modify the functionality of the CobraToolBox and provide additional custom features.
+
+## Usage 
+
+### Optimization: 
+Requirements: files list
+
+Run: optimisation.m 
+
+Output: B. caccae metabolic models
+
+### Perform dynamic Flux Balance Analysis: 
+requirements: files list 
+
+run: Test_model_after_optimisation_3_media.m (change name)
+
+Output: 
+
+## Simulation Results
+
+- Optimization: optimize the exchange reactions lower and upper bounds using an in vitro training data set using a GLM and a P20 in silico media. The optimization allows to obtain a parametrized B. caccae metabolic model.
+
+- Dynamic FBA Simulation: the modified dynamic FBA function incorporate additional regulations for improved growth and metabolic production prediction accuracy. dFBA analysis is performed on 3 different media (GLM, P2 and P20)
+
+- Comparison with laboratory data: .
+
+## Contact Information
+
+For any questions or inquiries regarding this project, please contact [provide your contact information].
