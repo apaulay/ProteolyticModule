@@ -1,10 +1,10 @@
-# Proteolytic Module for Bacteroides caccae Metabolic Model
+# Proteolytic Module for _Bacteroides caccae_ Metabolic Model
 
-This repository contains scripts and resources for developing and implementing a proteolytic module in a Bacteroides caccae ATCC 43185 metabolic metabolic model.
+This repository contains scripts and resources for developing and implementing a proteolytic module in a _Bacteroides caccae_ ATCC 43185 metabolic model.
 
 ## Project Description
 
-The aim of this project is to enhance the B. caccae metabolic model growth and metabolic production prediction accuracy by incorporating a proteolytic module. The proteolytic module allows for protein breakdown and provides a more comprehensive representation of the organism's metabolic capabilities.
+The aim of this project is to enhance the _B. caccae_ metabolic model growth and metabolic production prediction accuracy by incorporating a proteolytic module. The proteolytic module allows for protein breakdown and provides a more comprehensive representation of the organism's metabolic capabilities.
 
 ## Dependency
 
@@ -17,26 +17,36 @@ The aim of this project is to enhance the B. caccae metabolic model growth and m
 ## Usage 
 
 ### Optimization: 
-Requirements: files list
 
-Run: optimisation.m 
+- Optimization: optimize the exchange reactions' lower and upper bounds using an in vitro training data set using a GLM and a P20 in silico media. The optimization allows to obtain a parametrized _B. caccae_ metabolic model.
 
-Output: B. caccae metabolic models
+```matlab
+optimisation
+```
+
+Output: optimized _B. caccae_ metabolic model ready to be used for dynamicFBA 
+
+Requirements: parameters files (list) 
 
 ### Perform dynamic Flux Balance Analysis: 
-requirements: files list 
-
-run: Test_model_after_optimisation_3_media.m (change name)
-
-Output: 
-
-## Simulation Results
-
-- Optimization: optimize the exchange reactions lower and upper bounds using an in vitro training data set using a GLM and a P20 in silico media. The optimization allows to obtain a parametrized B. caccae metabolic model.
 
 - Dynamic FBA Simulation: the modified dynamic FBA function incorporate additional regulations for improved growth and metabolic production prediction accuracy. dFBA analysis is performed on 3 different media (GLM, P2 and P20)
 
-- Comparison with laboratory data: .
+ - Comparison with laboratory data:
+
+```matlab
+Test_model_after_optimisation_3_media
+```
+
+Output: 
+
+Requirements: parameters files (list)
+
+## Licence 
+
+## Citation 
+
+A completer et lien vers le pre print éventuellement 
 
 ## Contact Information
 
