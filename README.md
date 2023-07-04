@@ -26,8 +26,6 @@ optimisation
 
 Output: optimized _B. caccae_ metabolic model ready to be used for dynamicFBA 
 
-Requirements: parameters files (list) 
-
 ### Perform dynamic Flux Balance Analysis: 
 
 - Dynamic FBA Simulation: the modified dynamic FBA function incorporate additional regulations for improved growth and metabolic production prediction accuracy. dFBA analysis is performed on 3 different media (GLM, P2 and P20)
@@ -35,12 +33,12 @@ Requirements: parameters files (list)
  - Comparison with laboratory data:
 
 ```matlab
-Test_model_after_optimisation_3_media
+simulation_proteolytic_module
 ```
 
 Output: 
-
-Requirements: parameters files (list)
+- graphical representation of biomass and metabolite production.
+- graphical representation of the goodness of fit of the models
 
 ## Licence 
 The MIT License (MIT)
