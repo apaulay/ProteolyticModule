@@ -86,7 +86,7 @@ xlabel('Time (h)','FontSize', 18);
 legend('P20','P2', 'GLM','Location','northwest')
 set(gca, 'TickLabelInterpreter', 'latex')
 set(gca, 'XTickLabel', get(gca, 'XTick'), 'YTickLabel', get(gca, 'YTick'), 'FontSize', 12)
-print('g20_g0_g2_biomass','-dpng')
+print('Biomass','-dpng')
 close;
 
 
@@ -116,8 +116,8 @@ ylabel(laby);
 yl = ylim;
 ylim([0 yl(2)]);
 xlabel('Time (h)');
-legend('G20','SG0','G2')
-print('g20_g0_g2_acetate','-dpng')
+legend('G20','G0','G2')
+print('Acetate','-dpng')
 close; 
 
 
@@ -148,7 +148,7 @@ yl = ylim;
 ylim([0 yl(2)]);
 xlabel('Time (h)');
 legend('G20','G0','G2')
-print('g20_g0_g2_propionate','-dpng')
+print('Propionate','-dpng')
 close; 
 
 %% LACTOSE
@@ -178,7 +178,7 @@ yl = ylim;
 ylim([0 yl(2)]);
 xlabel('Time (h)');
 legend('G20','G0','G2')
-print('g20_g0_g2_lactose','-dpng')
+print('Lactose','-dpng')
 close; 
 
 %% glucose
@@ -208,7 +208,7 @@ yl = ylim;
 ylim([0 yl(2)]);
 xlabel('Time (h)');
 legend('G20','G0','G2')
-print('g20_g0_g2_glucose','-dpng')
+print('Glucose','-dpng')
 close; 
 
 %% protéines
@@ -246,7 +246,7 @@ yl = ylim;
 ylim([0 yl(2)]);
 xlabel('Time (h)');
 legend('G20','GO','G2')
-print('g20_g0_g2_protein','-dpng')
+print('Protein','-dpng')
 close; 
 
 %% plot all produced metabolites
@@ -299,14 +299,14 @@ end
 plot(timeVec2,met_produced_concG0)
 xlabel('Time (h)')
 legend(strrep(met_produced_nameG0, 'EX_',''),'Location','eastoutside')
-title('G0 produced metabolites')
-print('G0_produced_metabolites','-dpng')
+title('GLM produced metabolites')
+print('GLM_produced_metabolites','-dpng')
 close;
 plot(timeVec2,met_consumed_concG0)
 xlabel('Time (h)')
 legend(strrep(met_consumed_nameG0, 'EX_',''),'Location','eastoutside')
-title('G0 consumed metabolites')
-print('G0_consumed_metabolites','-dpng')
+title('GLM consumed metabolites')
+print('GLM_consumed_metabolites','-dpng')
 close;
 
 
@@ -328,35 +328,15 @@ end
 plot(timeVec3,met_produced_concG2)
 xlabel('Time (h)')
 legend(strrep(met_produced_nameG2, 'EX_',''),'Location','eastoutside')
-title('G2 produced metabolites')
-print('G2_produced_metabolites','-dpng')
+title('P2 produced metabolites')
+print('P2_produced_metabolites','-dpng')
 close;
 plot(timeVec3,met_consumed_concG2)
 xlabel('Time (h)')
 legend(strrep(met_consumed_nameG2, 'EX_',''),'Location','eastoutside')
-title('G2 consumed metabolites')
-print('G2_consumed_metabolites','-dpng')
+title('P2 consumed metabolites')
+print('P2_consumed_metabolites','-dpng')
 close;
-
-%% flux that max out
-for i = 1:length(flux)
-    if model.lb(i) == flux(i,1) && model.lb(i) ~= 0 && strcmp(model.rxns{i}(1:2),'EX')
-        sprintf('flux %s is limitating\n', char(model.rxns(i)))
-    end
-end 
-
-for i = 1:length(flux3)
-    if model.lb(i) == flux3(i,1) && model.lb(i) ~= 0 && strcmp(model.rxns{i}(1:2),'EX')
-        sprintf('flux %s is limitating\n', char(model.rxns(i)))
-    end
-end 
-
-for i = 1:length(flux2)
-    if model2.lb(i) == flux2(i,1) && model2.lb(i) ~= 0 && strcmp(model2.rxns{i}(1:2),'EX')
-        sprintf('flux %s is limitating\n', char(model2.rxns(i)))
-    end
-end 
-
 
 %% R SQUARE FOR METABOLITE
 met = {'Acetate','Propionate','Glucose','Lactose','Succinate'};
@@ -485,7 +465,7 @@ ylabel('Residual')
 ylim([-1 2.5])
 xlim([10^-1.4,10^1.5])
 fig1 = figure(1);
-print('G0_G2_G20_loglog_data_vs_predicted','-dpng')
+print('GLM_P2_P20_loglog_data_vs_predicted','-dpng')
 close;
 
 %% G2 G0/G2/G20 BIOMASS
@@ -525,7 +505,7 @@ ylabel('Residual')
 ylim([-1 1])
 fig1 = figure(1);
 fig1.WindowState = 'maximized';
-print('G0_G2_G20_loglog_data_vs_predicted_biomass','-dpng')
+print('GLM_P2_P20_loglog_data_vs_predicted_biomass','-dpng')
 close;
 
 %% G0/G20
@@ -564,7 +544,7 @@ xlabel('Predicted')
 ylabel('Residual')
 ylim([-1 2.5])
 xlim([10^-1.4,10^1.5])
-print('G0_G20_loglog_data_vs_predicted','-dpng')
+print('GLM_P20_loglog_data_vs_predicted','-dpng')
 close;
 
 %% G2 
@@ -603,7 +583,7 @@ xlabel('Predicted')
 ylabel('Residual')
 ylim([-1 1])
 xlim([10^-1.4,10^1.5])
-print('G2_loglog_data_vs_predicted','-dpng')
+print('P2_loglog_data_vs_predicted','-dpng')
 close;
 
 %% ONLY FOR BIOMASS G0 and G20
@@ -640,7 +620,7 @@ semilogx(y,-0.1.*ones(length(x)),':r')
 xlabel('Predicted')
 ylabel('Residual')
 ylim([-1 1])
-print('G0_G20_loglog_data_vs_predicted_biomass','-dpng')
+print('GLM_P20_loglog_data_vs_predicted_biomass','-dpng')
 close;
 
 %% ONLY FOR BIOMASS G2
@@ -678,7 +658,7 @@ xlabel('Predicted')
 ylabel('Residual')
 ylim([-1 1])
 xlim([10^-1.39, 10^-0.1])
-print('G2_loglog_data_vs_predicted_biomass','-dpng')
+print('P2_loglog_data_vs_predicted_biomass','-dpng')
 close;
 
 %% G0 G2 G20 EACH METABOLITE + BIOMASS 
@@ -759,7 +739,7 @@ for i = 1:length(met)
 end
 fig1 = figure(1);
 fig1.WindowState = 'maximized';
-print('G0_G2_G20_loglog_data_vs_predicted_all_param','-dpng')
+print('GLM_P2_P20_loglog_data_vs_predicted_all_param','-dpng')
 close;
 %% G0 G20 EACH METABOLITE + BIOMASS 
 y = [biomG0; biomG20]; % Biological Data (mean)
@@ -836,7 +816,7 @@ for i = 1:length(met)
 end
 fig1 = figure(1);
 fig1.WindowState = 'maximized';
-print('G0_G20_loglog_data_vs_predicted_all_param','-dpng')
+print('GLM_P20_loglog_data_vs_predicted_all_param','-dpng')
 close;
 
 %% G2 EACH METABOLITE + BIOMASS 
@@ -911,7 +891,7 @@ for i = 1:length(met)
 end
 fig1 = figure(1);
 fig1.WindowState = 'maximized';
-print('G2_loglog_data_vs_predicted_all_param','-dpng')
+print('P2_loglog_data_vs_predicted_all_param','-dpng')
 close;
 
 %% TEST ON P20 and REACTION PROTEOLYSIS 
@@ -944,7 +924,7 @@ legend('Experimental data','Sim with both proteolysis modules', 'Sim with no pro
 xlabel('Time (h)', 'FontSize', 15);
 ylabel('Biomass (g.L-1)', 'FontSize', 15);
 title('Biomass', 'FontSize', 18,'FontWeight', 'normal' ) 
-%print('test_reaction_prot_biomass','-dpng')
+print('Biomass_production_depending_on_modules','-dpng')
 
 [~, loc] = ismember('EX_ac(e)',excRxnNames_P20_without_prot);
 acetateG20_without_prot = conc_without_prot(loc, :);
@@ -981,56 +961,4 @@ legend('Experimental Ac','Experimental Ppa','Ac with both proteolysis modules', 
 xlabel('Time (h)', 'FontSize', 15);
 ylabel('Metabolites (mM)', 'FontSize', 15);
 title('Acetate and Propionate', 'FontSize', 18,'FontWeight', 'normal') 
-print('test_reaction_prot','-dpng')
-
-% comparaison with both reactions => G20 
-
-[~, loc] = ismember('EX_ac(e)',excRxnNames);
-[~, loc2] = ismember('EX_ac(e)',excRxnNames2);
-[~, loc3] = ismember('EX_ac(e)',excRxnNames3);
-acetateG20 = conc(loc, :);
-acetateG0 = conc2(loc2, :);
-acetateG2 = conc3(loc3, :);
-yac = [table2array(met_res(9+48:12+48,6))];
-errac = [table2array(met_res(9+48:12+48,7))];
-y2ac = [table2array(met_res(49:3+49,6))];
-err2ac = [table2array(met_res(49:3+49,7))];
-y3ac = [table2array(met_res(53:56,6))];
-err3ac = [table2array(met_res(53:56,7))];
-[~, loc] = ismember('EX_ppa(e)',excRxnNames);
-[~, loc2] = ismember('EX_ppa(e)',excRxnNames2);
-[~, loc3] = ismember('EX_ppa(e)',excRxnNames3);
-propionateG20 = conc(loc, :);
-propionateG0 = conc2(loc2, :);
-propionateG2 = conc3(loc3, :);
-ypp = [table2array(met_res(9+60:12+60,6))];
-errpp = [table2array(met_res(9+60:12+60,7))];
-y2pp = [table2array(met_res(61:3+61,6))];
-err2pp = [table2array(met_res(61:3+61,7))];
-y3pp = [table2array(met_res(65:68,6))];
-err3pp = [table2array(met_res(65:68,7))];
-
-
-errorbar(x,yac,errac,'r*')
-hold on
-errorbar(x,y2ac,err2ac,'b*')
-hold on
-errorbar(x,y3ac,err3ac,'k*')
-hold on 
-errorbar(x,ypp,errpp,'ro')
-hold on 
-errorbar(x,y2pp,err2pp,'bo')
-hold on
-errorbar(x,y3pp,err3pp,'ko')
-hold on
-plot(timeVec, acetateG20,'r--',timeVec3, acetateG2, 'k--',timeVec2, acetateG0, 'b--')
-hold on 
-plot(timeVec, propionateG20, 'r-.',timeVec3, propionateG2, 'k-.',timeVec2, propionateG0, 'b-.')
-legend('Acetate P20','Acetate P2','Acetate GLM','Propionate P20','Propionate P2','Propionate GLM','Location','northwest')
-xlabel('Time (h)','FontSize', 18);
-ylabel('Metabolites (mM)','FontSize', 18);
-title('Acetate and Propionate','FontSize', 20, 'FontWeight', 'normal') 
-set(gca, 'TickLabelInterpreter', 'latex');
-set(gca, 'XTickLabel', get(gca, 'XTick'), 'YTickLabel', get(gca, 'YTick'), 'FontSize', 12);
-print('g20_g0_g2_propionate_acetate','-dpng')
-close;
+print('metabolites_production_depending_on_modules','-dpng')
