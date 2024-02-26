@@ -24,7 +24,7 @@ The aim of this project is to enhance the _B. caccae_ metabolic model growth and
 optimisation
 ```
 
-Output: optimized _B. caccae_ metabolic model ready to be used for dynamicFBA 
+Output: optimized parameters and _B. caccae_ metabolic models ready to be used for dynamicFBA simulation  
 
 ### Perform dynamic Flux Balance Analysis: 
 
